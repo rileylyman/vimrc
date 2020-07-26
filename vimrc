@@ -44,7 +44,8 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'bling/vim-airline'
-Plugin 'w0rp/ale'
+" Plugin 'w0rp/ale'
+Plugin 'rhysd/vim-clang-format'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'beyondmarc/glsl.vim'
@@ -58,6 +59,7 @@ Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 Plugin 'rakr/vim-one' 
 Plugin 'joshdick/onedark.vim'
 Plugin 'reedes/vim-pencil'
+Plugin 'ycm-core/YouCompleteMe'
 call vundle#end()            
 filetype plugin indent on    " required
 
@@ -70,7 +72,10 @@ let g:gruvbox_italicize_comments = '1'
 
 " ALE
 let g:ale_completion_enabled = 1
-let g:ale_linters = {'rust': ['rls'], 'C': ['gcc'] }
+let g:ale_linters = {'rust': ['rls'], 'C': ['clang'], 'cpp': ['clang'] }
+
+"CLANG FORMAT
+let g:clang_format#code_style = 'mozilla'
 
 " CTRLP 
 " Fuzzy search through files 
