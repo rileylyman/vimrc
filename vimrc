@@ -75,7 +75,11 @@ let g:ale_completion_enabled = 1
 let g:ale_linters = {'rust': ['rls'], 'C': ['clang'], 'cpp': ['clang'] }
 
 "CLANG FORMAT
-let g:clang_format#code_style = 'mozilla'
+let g:clang_format#code_style = 'google'
+augroup clang_settings " {
+    autocmd!
+    autocmd BufWritePost *.cpp,*.c,*.cc,*.h,*.hpp ClangFormat
+augroup end " }
 
 " CTRLP 
 " Fuzzy search through files 
