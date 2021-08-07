@@ -45,6 +45,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 " Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 Plugin 'bling/vim-airline'
+Plugin 'rust-lang/rust.vim'
 Plugin 'rhysd/vim-clang-format'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'rafi/awesome-vim-colorschemes'
@@ -79,6 +80,9 @@ let g:one_allow_italics=1
 let g:gruvbox_contrast_dark = 'medium'
 let g:gruvbox_italicize_strings = '1'
 let g:gruvbox_italicize_comments = '1'
+
+"Rust
+let g:rustfmt_autosave = 1
 
 " ALE
 let g:ale_completion_enabled = 1
