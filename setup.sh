@@ -26,3 +26,19 @@ echo 'source ~/.vimrc' >> ~/.config/nvim/init.nvim
 
 echo "Installing vundle..."
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+root_dir=$PWD
+
+echo "Installing exa..."
+cd ..
+git clone https://github.com/ogham/exa.git
+cd exa
+cargo install --path .
+cd $root_dir
+
+echo "Installing rust powerline..."
+cd ..
+git clone https://github.com/cirho/powerline-rust
+cd powerline-rust
+cargo install --path .
+cd $root_dir
