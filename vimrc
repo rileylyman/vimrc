@@ -12,6 +12,7 @@ set cindent
 set number
 set splitright
 set splitbelow
+set colorcolumn=80
 
 " Syntax highlighting
 syntax on
@@ -48,6 +49,8 @@ Plugin 'bling/vim-airline'
 Plugin 'rust-lang/rust.vim'
 Plugin 'rhysd/vim-clang-format'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'nvie/vim-flake8'
+Plugin 'tell-k/vim-autopep8'
 Plugin 'rafi/awesome-vim-colorschemes'
 Plugin 'tpope/vim-fugitive'
 Plugin 'beyondmarc/glsl.vim'
@@ -71,11 +74,12 @@ call vundle#end()
 filetype plugin indent on    " required
 
 " COLOR SCHEME 
-colorscheme gruvbox
+" colorscheme gruvbox
 " colorscheme dogrun
 " colorscheme sierra
 " colorscheme two-firewatch
 " colorscheme 256_noir
+colorscheme anderson
 let g:one_allow_italics=1
 let g:gruvbox_contrast_dark = 'medium'
 let g:gruvbox_italicize_strings = '1'
@@ -83,6 +87,20 @@ let g:gruvbox_italicize_comments = '1'
 
 "Rust
 let g:rustfmt_autosave = 1
+
+"FLAKE8
+let g:flake8_show_in_gutter = 1
+let g:flake8_show_in_file = 1
+let g:flake8_quickfix_height=1
+augroup flake8_settings " {
+    autocmd!
+    autocmd BufWritePost *.py :call flake8#Flake8()
+augroup end " }
+
+"AUTOPEP8
+let g:autopep8_on_save = 1
+let g:autopep8_disable_show_diff=1
+let g:autopep8_max_line_length=79
 
 " ALE
 let g:ale_completion_enabled = 1
