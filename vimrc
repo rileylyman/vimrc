@@ -12,11 +12,15 @@ set background=dark
 set noerrorbells visualbell t_vb=
 autocmd GUIEnter * set visualbell t_vb=
 
+" spell checking
+set spell
+
 " Tabz
 set expandtab
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
+set shiftround
 set cindent
 
 " Allow mouse clicks
@@ -35,6 +39,7 @@ set iskeyword+=:
 " Show the line length limit
 set colorcolumn=80
 au Filetype rust set colorcolumn=100
+set sidescrolloff=5
 
 " Show %s/ changes as it happens
 set inccommand=nosplit
@@ -66,6 +71,7 @@ set splitbelow
 " Permanent undo
 set undodir=~/.vimdid
 set undofile
+set history=1000
 
 " Proper search
 set incsearch
@@ -96,6 +102,11 @@ imap <F1> <Esc>
 nnoremap ? ?\v
 nnoremap / /\v
 cnoremap %s/ %sm/
+
+" Easier splits
+nnoremap <leader>v :vsplit
+nnoremap <leader>s :split
+nnoremap <leader>e :e
 
 " Exit paste mode when leaving insert
 autocmd InsertLeave * set nopaste
@@ -155,6 +166,9 @@ Plugin 'psf/black', {'branch': 'stable'}
 " Airline at bottom of screen.
 Plugin 'bling/vim-airline'
 
+" History for yanks
+Plugin 'maxbrunsfeld/vim-yankstack'
+
 call vundle#end()            
 
 " Colorscheme
@@ -163,6 +177,8 @@ let g:gruvbox_contrast_dark = 'medium'
 
 "Rust
 let g:rustfmt_autosave = 1
+
+let g:syntastic_auto_jump = 0
 
 " C/C++ autofmt
 let g:clang_format#code_style = 'google'
