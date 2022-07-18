@@ -82,6 +82,7 @@ set gdefault
 " Tab complete
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <Esc> <C-\><C-N>
 
 " Text files with long lines can still be navigated
 nnoremap <buffer> j gj
@@ -134,10 +135,15 @@ Plugin 'VundleVim/Vundle.vim'
 " :CocInstall coc-toml
 " :CocInstall coc-prettier
 " :CocInstall coc-svelte
+" :CocInstall coc-flutter
 Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Rust formatting and errors, not sure how this plays with CoC
 Plugin 'rust-lang/rust.vim'
+
+" Dart/Flutter stuff.
+Plugin 'dart-lang/dart-vim-plugin'
+Plugin 'thosakwe/vim-flutter'
 
 " Run clang-format inside of vim
 Plugin 'rhysd/vim-clang-format'
@@ -168,6 +174,9 @@ Plugin 'bling/vim-airline'
 
 " History for yanks
 Plugin 'maxbrunsfeld/vim-yankstack'
+
+" Jai!
+Plugin 'jansedivy/jai.vim'
 
 call vundle#end()            
 
@@ -204,6 +213,14 @@ augroup END
 augroup glsl_ft
   au!
   autocmd BufNewFile,BufRead *.frag,*.vert set ft=glsl
+augroup END
+
+"Jai indentation
+augroup jai
+  au!
+  autocmd BufNewFile,BufRead *.jai set tabstop=4
+  autocmd BufNewFile,BufRead *.jai set softtabstop=4
+  autocmd BufNewFile,BufRead *.jai set shiftwidth=4
 augroup END
 
 " NERD TREE
