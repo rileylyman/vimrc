@@ -134,16 +134,13 @@ Plugin 'VundleVim/Vundle.vim'
 " :CocInstall coc-rust-analyzer
 " :CocInstall coc-toml
 " :CocInstall coc-prettier
+" :CocInstall coc-tsserver
 " :CocInstall coc-svelte
 " :CocInstall coc-flutter
 Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Rust formatting and errors, not sure how this plays with CoC
 Plugin 'rust-lang/rust.vim'
-
-" Dart/Flutter stuff.
-Plugin 'dart-lang/dart-vim-plugin'
-Plugin 'thosakwe/vim-flutter'
 
 " Run clang-format inside of vim
 Plugin 'rhysd/vim-clang-format'
@@ -168,6 +165,7 @@ Plugin 'morhetz/gruvbox'
 
 " Python formatting.
 Plugin 'psf/black', {'branch': 'stable'}
+Plugin 'fisadev/vim-isort'
 
 " Airline at bottom of screen.
 Plugin 'bling/vim-airline'
@@ -177,6 +175,10 @@ Plugin 'maxbrunsfeld/vim-yankstack'
 
 " Jai!
 Plugin 'jansedivy/jai.vim'
+
+Plugin 'othree/html5.vim'
+Plugin 'pangloss/vim-javascript'
+Plugin 'evanleck/vim-svelte', {'branch': 'main'}
 
 call vundle#end()            
 
@@ -193,7 +195,7 @@ let g:syntastic_auto_jump = 0
 let g:clang_format#code_style = 'google'
 augroup clang_settings
     autocmd!
-    autocmd BufWritePost *.cpp,*.c,*.cc,*.h,*.hpp,*.proto ClangFormat
+    autocmd BufWritePost *.cpp,*.c,*.cc,*.h,*.hpp,*.proto,*.ino ClangFormat
 augroup end
 
 " Python autofmt
@@ -201,6 +203,7 @@ let g:black_quiet = 1
 augroup pyblack
     autocmd!
     autocmd BufWritePost *.py Black
+    autocmd BufWritePost *.py Isort
 augroup end
 
 " NASM highlighting

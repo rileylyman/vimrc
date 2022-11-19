@@ -20,7 +20,7 @@ cp bashrc ~/.bashrc
 cp vimrc ~/.vimrc
 
 mkdir -p ~/.config/nvim/
-echo 'runtimepath^=~/.vim runtimepath+=~/.vim/after' >> ~/.config/nvim/init.nvim
+echo 'set runtimepath^=~/.vim runtimepath+=~/.vim/after' >> ~/.config/nvim/init.nvim
 echo 'let &packpath = &runtimepath' >> ~/.config/nvim/init.nvim
 echo 'source ~/.vimrc' >> ~/.config/nvim/init.nvim
 
